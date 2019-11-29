@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from Pi.Outside import BME680
 from Pi.Plant import STEMMA
-import Pi.Camera as cam
+import Pi.Outside.Camera as cam
 import time
 import datetime
 import json
