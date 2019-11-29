@@ -1,13 +1,27 @@
 #!/usr/bin/env python3
 from Pi.Outside import BME680
 from Pi.Plant import STEMMA
+from sys import argv
 import Pi.Outside.Camera as cam
 import time
 import datetime
+import logging
 import json
 
 
-def main():
+def main(delay_sec: int) -> None:
+    logging.basicConfig(format='%(asctime)s - %(message)s', level=logging.INFO)
+    """
+    This function makes the calls to read the data from the sensors,
+    then writes to a json file after waiting a certain amount of time
+    :return:
+    """
+    try:
+        delay = int(delay_sec)
+    except ValueError as ev:
+        print('Input value must be an integer!')
+        logging.critical('{}\nFATAL ERROR WHILE PARSING VALUED ENTERED: {} TO INTEGER VALUE.'.format(ev, delay))
+
     while True:
         data = dict()
         hour = datetime.datetime.now().strftime("%H")
@@ -26,7 +40,7 @@ def main():
         path = '/home/pi/data/{}-{}-{}/data-{}-{}.json'.format(mon, day, year, hour, minute)
         with open(path, 'w') as json_file:
             json.dump(data, json_file)
-        time.sleep(60)
+        time.sleep(delay)
 
 
 if __name__ == '__main__':

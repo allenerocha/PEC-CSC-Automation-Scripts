@@ -14,6 +14,8 @@ required = [
     'board',
     'busio',
     'datetime',
+    'json',
+    'logging',
     'picamera'
 ]
 
