@@ -44,4 +44,4 @@ def main(delay_sec: int) -> None:
 
 
 if __name__ == '__main__':
-    main()
+    main(argv[1])
