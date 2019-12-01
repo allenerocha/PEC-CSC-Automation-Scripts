@@ -2,14 +2,12 @@
     "time": "String",
     "plant": {
         "temperature": 0.0,
-        "moisture": 0,
-        "plant_img64" : "String"
+        "moisture": 0
     },
     "outside": {
         "temperature": 0.0,
         "humidity": 0.0,
         "pressure": 0.0,
-        "gas": 0.0,
-        "outside_img64" : "String"
+        "gas": 0.0
     }
 }
